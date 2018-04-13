@@ -1,0 +1,97 @@
+{
+  "name": "@guriafs/canvas-annotate",
+  "version": "1.0.0",
+  "description": "Set of React components to annotate images with shapes on canvas",
+  "author": "Aleksey Gurianov <gurianov@gmail.com>",
+  "license": "MIT",
+  "repository": "Guria/canvas-annotate",
+  "main": "lib/index.js",
+  "module": "es/index.js",
+  "jsnext:main": "es/index.js",
+  "typings": "./types",
+  "scripts": {
+    "clean": "npx rimraf ./es ./lib ./types",
+    "test:lib": "jest",
+    "test:example": "tsc -p ./example",
+    "test": "run-p test:*",
+    "prebuild": "npm run clean",
+    "build:cjs": "tsc -p tsconfig.cjs.json",
+    "build:es": "tsc",
+    "build": "run-p build:*",
+    "start:watch": "tsc -w",
+    "start:example": "parcel ./example/index.html",
+    "start": "run-p start:*",
+    "prepare": "run-s build",
+    "predeploy": "parcel build ./example/index.html",
+    "deploy": "gh-pages -d build",
+    "lint": "eslint ./**/*.ts? ./**/*.js",
+    "format": "prettier ./**/*.ts? ./**/*.css ./**/*.js --write",
+    "precommit": "lint-staged"
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx}": [
+      "eslint --fix",
+      "git add"
+    ],
+    "*.{css,md}": [
+      "prettier --write",
+      "git add"
+    ]
+  },
+  "peerDependencies": {
+    "react": "^16.3.1",
+    "react-dom": "^16.3.1"
+  },
+  "devDependencies": {
+    "@types/jest": "^22.2.3",
+    "@types/react": "^16.3.10",
+    "@types/react-dom": "^16.0.5",
+    "eslint": "^4.19.1",
+    "eslint-config-prettier": "^2.9.0",
+    "eslint-config-standard": "^11.0.0",
+    "eslint-config-standard-jsx": "^5.0.0",
+    "eslint-plugin-import": "^2.11.0",
+    "eslint-plugin-node": "^6.0.1",
+    "eslint-plugin-prettier": "^2.6.0",
+    "eslint-plugin-promise": "^3.7.0",
+    "eslint-plugin-react": "^7.7.0",
+    "eslint-plugin-standard": "^3.0.1",
+    "eslint-plugin-typescript": "^0.11.0",
+    "gh-pages": "^1.1.0",
+    "husky": "^0.14.3",
+    "jest": "^22.4.3",
+    "jest-css": "^1.0.1",
+    "konva": "^2.0.2",
+    "lint-staged": "^7.0.4",
+    "npm-run-all": "^4.1.2",
+    "parcel-bundler": "^1.7.1",
+    "prettier": "^1.12.0",
+    "react": "^16.3.1",
+    "react-dom": "^16.3.1",
+    "react-konva": "^1.7.2",
+    "react-testing-library": "^2.1.1",
+    "ts-jest": "^22.4.3",
+    "tslib": "^1.9.0",
+    "typescript": "~2.7.2",
+    "typescript-eslint-parser": "^14.0.0"
+  },
+  "jest": {
+    "transform": {
+      "^.+\\.tsx?$": "ts-jest",
+      "^.+\\.css$": "jest-css"
+    },
+    "testRegex": "(/__tests__/.*|(\\.|/)(test|spec))\\.(jsx?|tsx?)$",
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js",
+      "jsx",
+      "json",
+      "node"
+    ]
+  },
+  "files": [
+    "es",
+    "lib"
+  ]
+}

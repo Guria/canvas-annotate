@@ -1,0 +1,17 @@
+{
+  "compilerOptions": {
+    "strict": true,
+    "moduleResolution": "node",
+    "noImplicitAny": true,
+    "noEmit": true,
+    "jsx": "react",
+    "typeRoots": ["../types"]
+  },
+  "include": ["./**/*.ts", "./**/*.tsx"],
+  "exclude": [
+    "./**/test.ts",
+    "./**/test.tsx",
+    "./**/*.test.ts",
+    "./**/*.test.tsx"
+  ]
+}

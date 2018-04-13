@@ -1,0 +1,24 @@
+{
+  "compilerOptions": {
+    "strict": true,
+    "module": "es6",
+    "moduleResolution": "node",
+    "noImplicitAny": true,
+    "noEmitHelpers": false,
+    "importHelpers": true,
+    "jsx": "react",
+    "rootDir": "./src",
+    "outDir": "./es",
+    "typeRoots": [
+      "./node_modules/@types/react",
+      "./node_modules/@types/react-dom"
+    ]
+  },
+  "include": ["./src/**/*.ts", "./src/**/*.tsx", "./index.d.ts"],
+  "exclude": [
+    "./**/test.ts",
+    "./**/test.tsx",
+    "./**/*.test.ts",
+    "./**/*.test.tsx"
+  ]
+}
