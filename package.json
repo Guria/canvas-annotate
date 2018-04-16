@@ -1,7 +1,8 @@
 {
   "name": "@guriafs/canvas-annotate",
-  "version": "1.0.0",
-  "description": "Set of React components to annotate images with shapes on canvas",
+  "version": "0.0.0",
+  "description":
+    "Set of React components to annotate images with shapes on canvas",
   "author": "Aleksey Gurianov <gurianov@gmail.com>",
   "license": "MIT",
   "repository": "Guria/canvas-annotate",
@@ -22,21 +23,16 @@
     "start:example": "parcel ./example/index.html",
     "start": "run-p start:*",
     "prepare": "run-s build",
-    "predeploy": "parcel build ./example/index.html",
-    "deploy": "gh-pages -d build",
-    "lint": "eslint ./**/*.ts? ./**/*.js",
-    "format": "prettier ./**/*.ts? ./**/*.css ./**/*.js --write",
+    "predeploy":
+      "parcel build ./example/index.html --public-url /canvas-annotate/",
+    "deploy": "gh-pages -d dist",
+    "lint": "eslint ./**/*.ts ./**/*.tsx ./**/*.js",
+    "format": "prettier ./**/*.ts ./**/*.tsx ./**/*.css ./**/*.js --write",
     "precommit": "lint-staged"
   },
   "lint-staged": {
-    "*.{js,jsx,ts,tsx}": [
-      "eslint --fix",
-      "git add"
-    ],
-    "*.{css,md}": [
-      "prettier --write",
-      "git add"
-    ]
+    "*.{js,jsx,ts,tsx}": ["eslint --fix", "git add"],
+    "*.{css,md}": ["prettier --write", "git add"]
   },
   "peerDependencies": {
     "react": "^16.3.1",
@@ -81,17 +77,7 @@
       "^.+\\.css$": "jest-css"
     },
     "testRegex": "(/__tests__/.*|(\\.|/)(test|spec))\\.(jsx?|tsx?)$",
-    "moduleFileExtensions": [
-      "ts",
-      "tsx",
-      "js",
-      "jsx",
-      "json",
-      "node"
-    ]
+    "moduleFileExtensions": ["ts", "tsx", "js", "jsx", "json", "node"]
   },
-  "files": [
-    "es",
-    "lib"
-  ]
+  "files": ["es", "lib", "types"]
 }
